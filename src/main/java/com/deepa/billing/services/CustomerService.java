@@ -15,14 +15,12 @@ public class CustomerService {
     }
 
     public Customer registerCustomer(Customer customer) {
-       // validateCustomer(customer); // Implement customer validation logic if needed
+        // Validate if the email is not already registered
+        if (customerRepository.findByEmail(customer.getEmail()).isPresent()) {
+            throw new RuntimeException("Email address is already registered");
+        }
+
         return customerRepository.save(customer);
     }
 
-    // Implement additional service methods for customer retrieval, updating, and deletion if needed
-
-    private void validateCustomer(Customer customer) {
-        // Implement customer validation logic here if necessary
-        // For example, check if required fields are present, validate email format, etc.
-    }
 }

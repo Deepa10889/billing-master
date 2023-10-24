@@ -5,7 +5,8 @@ import com.deepa.billing.repositories.ElectricityReadingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.util.List;
+
 
 @Service
 public class ReadingService {
@@ -16,11 +17,15 @@ public class ReadingService {
         this.readingRepository = readingRepository;
     }
 
-    public void submitElectricityReading(Long customerId, int reading, LocalDate readingDate) {
-        ElectricityReading electricityReading = new ElectricityReading();
-        electricityReading.setCustomerId(customerId);
-        electricityReading.setCurrentReading(reading);
-        electricityReading.setReadingDate(readingDate);
+    public void submitElectricityReading(ElectricityReading electricityReading) {
+        if (electricityReading.getCurrentReading() < 0) {
+            throw new IllegalArgumentException("Reading value cannot be negative.");
+        }
         readingRepository.save(electricityReading);
+    }
+
+    public List<ElectricityReading> getElectricityReadingsByCustomer(Long customerId) {
+        // Retrieve electricity readings by customer from the repository
+        return readingRepository.findByCustomerId(customerId);
     }
 }

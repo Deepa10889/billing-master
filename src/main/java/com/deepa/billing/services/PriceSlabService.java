@@ -22,5 +22,9 @@ public class PriceSlabService {
         return priceSlabRepository.findByStartDateBeforeAndEndDateAfter(endDate, startDate);
     }
 
+    public void addPriceSlab(PriceSlab priceSlab) {
+        priceSlabRepository.save(priceSlab);
+    }
+
 }
 

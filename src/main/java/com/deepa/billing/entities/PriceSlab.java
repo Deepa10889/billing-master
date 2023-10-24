@@ -18,6 +18,16 @@ public class PriceSlab {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    public PriceSlab() {
+    }
+
+    // Constructor
+    public PriceSlab(int startUnits, int endUnits, double rate) {
+        this.startUnits = startUnits;
+        this.endUnits = endUnits;
+        this.rate = rate;
+    }
+
     public Long getId() {
         return id;
     }

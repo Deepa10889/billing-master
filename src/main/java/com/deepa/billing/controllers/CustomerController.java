@@ -29,4 +29,11 @@ public class CustomerController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    @PutMapping("/{customerId}")
+    public ResponseEntity<Customer> updateCustomer(@PathVariable Long customerId,
+                                                   @RequestBody Customer updatedCustomer) {
+        Customer updatedCustomerInfo = customerService.updateCustomer(customerId, updatedCustomer);
+        return ResponseEntity.ok(updatedCustomerInfo);
+    }
 }

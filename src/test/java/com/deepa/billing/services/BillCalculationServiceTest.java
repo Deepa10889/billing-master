@@ -1,20 +1,21 @@
 package com.deepa.billing.services;
 
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
 import com.deepa.billing.entities.PriceSlab;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BillingCalculationServiceTest {
+@RunWith(SpringRunner.class)
+public class BillCalculationServiceTest {
 
     @InjectMocks
     private BillCalculationService billingCalculationService;
@@ -22,13 +23,8 @@ class BillingCalculationServiceTest {
     @Mock
     private PriceSlabService priceSlabService;
 
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
-
     @Test
-    void testCalculateBill() {
+    public void testCalculateBill() {
         // Mock data
         LocalDate startDate = LocalDate.now().minusMonths(1);
         LocalDate endDate = LocalDate.now();

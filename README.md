@@ -10,7 +10,7 @@ As the project was built with using _Spring_  you can import this from eclipse o
 
 To run the project you can clone the repository using the following command:
 ```
-$ git clone $ git clone https://github.com/Deepa10889/billing-master.git
+$ git clone $ git clone https://github.com/Deepa10889/slab-based-Billing-system.git
 ```
 
 ### Project Structure

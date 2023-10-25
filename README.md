@@ -28,10 +28,10 @@ http://localhost:8080/swagger-ui.html#
 
 ### Functions
 
-Register Customer
-Define Price Slab
-Record Current Reading
-Bill Calculation
+• Register Customer
+• Define Price Slab
+• Record Current Reading
+• Bill Calculation
 
 
 ### Output expected
